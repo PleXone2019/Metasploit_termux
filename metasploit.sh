@@ -12,16 +12,16 @@ apt update && apt upgrade
 echo "Downloading & Extracting....."
 
 # Remove Old Tars
-find $HOME -name "*.16.tar.gz" -type f -delete
+find $HOME -name "*.61.tar.gz" -type f -delete
 
 # Remove Old Folders
 find $HOME -name "metasploit*" -type d -delete
 
 cd $HOME
-axel --alternate https://github.com/rapid7/metasploit-framework/archive/4.16.16.tar.gz
-tar -xf $HOME/metasploit-framework-4.16.16.tar.gz
-mv $HOME/metasploit-framework-4.16.16 $HOME/metasploit-framework
-rm $HOME/metasploit-framework-4.16.16.tar.gz
+axel --alternate https://github.com/rapid7/metasploit-framework/archive/4.16.61.tar.gz
+tar -xf $HOME/metasploit-framework-4.16.61.tar.gz
+mv $HOME/metasploit-framework-4.16.61 $HOME/metasploit-framework
+rm $HOME/metasploit-framework-4.16.61.tar.gz
 cd $HOME/metasploit-framework
 sed '/rbnacl/d' -i Gemfile.lock
 sed '/rbnacl/d' -i metasploit-framework.gemspec
@@ -56,7 +56,7 @@ if [ -e $PREFIX/bin/msfvenom ];then
 fi
 ln -sf $HOME/metasploit-framework/msfconsole /data/data/com.termux/files/usr/bin/
 ln -sf $HOME/metasploit-framework/msfvenom /data/data/com.termux/files/usr/bin/
-termux-elf-cleaner /data/data/com.termux/files/usr/lib/ruby/gems/2.4.0/gems/pg-0.20.0/lib/pg_ext.so
+termux-elf-cleaner /data/data/com.termux/files/usr/lib/ruby/gems/2.5.0/gems/pg-0.20.0/lib/pg_ext.so
 echo "Creating database"
 
 cd $HOME/metasploit-framework/config
